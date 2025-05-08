@@ -6,10 +6,12 @@
     <title>Auréle Parfumerie</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="icon" href="assets/background-icons/perfumeLogo.png">    
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#"><img src="assets/background-icons/perfumeLogo.png" alt="Alectia Icon" class="me-2"style="width: 30px; height= 30px;">Auréle Parfumerie</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -17,7 +19,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
                     <li class="nav-item"><a class="nav-link" href="#guides">Guides</a></li>
@@ -63,235 +65,245 @@
             </div>
         </div>
     </section>
-    
-    <!-- Product Section -->
-    <section id="products" class="py-5">
-        <div class="container">
-            <h2 class="text-center mb-4">Our Products</h2>
-            <p class="text-center mb-5">Embark on a sensory journey through our fragrance families. Discover the captivating allure of Floral bouquets, the sophisticated depth of Woody accords, and the invigorating freshness of Citrus bursts.</p>
-            <div class="row text-center">
-                <!-- Tab 1: Floral -->
-                <div class="col-md-4 mb-4" data-category="floral">
-                    <div class="card h-100">
-                        <img src="assets/background-icons/floralPerfume.jpg" class="card-img-top" alt="Floral Collection">
-                        <div class="card-body">
-                            <h5 class="card-title">Floral</h5>
-                            <p class="card-text">Delicate and romantic scents inspired by blooming flowers.</p>
-                            <a href="#floral" class="btn btn-primary">Explore Floral</a>
+
+    <div id="imageModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8); justify-content: center; align-items: center; z-index: 1050;">
+        <img id="modalImage" src="" alt="Zoomed Certificate" style="max-width: 90%; max-height: 90%; border: 5px solid white; border-radius: 8px;">
+    </div>
+      
+    <div class="container my-5" id="all-products">
+        <div class="container text-center my-4" id="product-filter">
+            <div class="btn-group" role="group" aria-label="Filter Products">
+              <button type="button" class="btn btn-outline-primary filter-btn" data-filter="all">All</button>
+              <button type="button" class="btn btn-outline-primary filter-btn" data-filter="floral">Floral</button>
+              <button type="button" class="btn btn-outline-primary filter-btn" data-filter="woody">Woody</button>
+              <button type="button" class="btn btn-outline-primary filter-btn" data-filter="citrus">Citrus</button>
+            </div>
+        </div>
+        <!-- Product Section -->
+        <section id="products" class="py-5">
+            <div class="container">
+                <h2 class="text-center mb-4">Our Products</h2>
+                <p class="text-center mb-5">Embark on a sensory journey through our fragrance families. Discover the captivating allure of Floral bouquets, the sophisticated depth of Woody accords, and the invigorating freshness of Citrus bursts.</p>
+                <div class="row text-center">
+                    <!-- Tab 1: Floral -->
+                    <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100" data-category="floral">
+                        <div class="card h-100">
+                            <img src="assets/background-icons/floralPerfume.jpg" class="card-img-top" alt="Floral Collection">
+                            <div class="card-body">
+                                <h5 class="card-title">Floral</h5>
+                                <p class="card-text">Delicate and romantic scents inspired by blooming flowers.</p>
+                                <a href="#floral" class="btn btn-primary">Explore Floral</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- Tab 2: Woody -->
-                <div class="col-md-4 mb-4" data-category="woody">
-                    <div class="card h-100">
-                        <img src="assets/background-icons/woodyPerfume.jpg" class="card-img-top" alt="Woody Collection">
-                        <div class="card-body">
-                            <h5 class="card-title">Woody</h5>
-                            <p class="card-text">Rich and earthy fragrances with a sophisticated edge.</p>
-                            <a href="#woody" class="btn btn-primary">Explore Woody</a>
+                    <!-- Tab 2: Woody -->
+                    <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200" data-category="woody">
+                        <div class="card h-100">
+                            <img src="assets/background-icons/woodyPerfume.jpg" class="card-img-top" alt="Woody Collection">
+                            <div class="card-body">
+                                <h5 class="card-title">Woody</h5>
+                                <p class="card-text">Rich and earthy fragrances with a sophisticated edge.</p>
+                                <a href="#woody" class="btn btn-primary">Explore Woody</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- Tab 3: Citrus -->
-                <div class="col-md-4 mb-4" data-category="citrus">
-                    <div class="card h-100">
-                        <img src="assets/background-icons/citrusPerfume.jpg" class="card-img-top" alt="Citrus Collection">
-                        <div class="card-body">
-                            <h5 class="card-title">Citrus</h5>
-                            <p class="card-text">Natural energy from citrus fruits, offering all-day freshness.</p>
-                            <a href="#citrus" class="btn btn-primary">Explore Citrus</a>
+                    <!-- Tab 3: Citrus -->
+                    <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300" data-category="citrus">
+                        <div class="card h-100">
+                            <img src="assets/background-icons/citrusPerfume.jpg" class="card-img-top" alt="Citrus Collection">
+                            <div class="card-body">
+                                <h5 class="card-title">Citrus</h5>
+                                <p class="card-text">Natural energy from citrus fruits, offering all-day freshness.</p>
+                                <a href="#citrus" class="btn btn-primary">Explore Citrus</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Add to cart -->
-    <div id="cart-message" class="cart-message">Added to Cart!</div>
-
-    <!-- Floral Section -->
-    <section id="floral" class="py-5">
-        <div class="container">
-            <h2 class="text-center mb-4">Floral Collection</h2>
-            <p class="text-center mb-5">A curated selection celebrating the exquisite beauty of floral notes. Discover scents that whisper of gardens in full bloom.</p>
-            <div class="row text-center">
-                <!-- Product 1 -->
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                        <img src="assets/perfumes/perfume01.png" class="card-img-top" alt="Floral Perfume 1">
-                        <div class="card-body">
-                            <h5 class="card-title">Fleur d'Été</h5>
-                            <p class="card-text">A vibrant bouquet of summer blooms.</p>
-                            <label for="size1">Choose size:</label>
-                            <select id="size1" class="form-select mb-2">
-                                <option value="30" data-price="1.320.000">30ml</option>
-                                <option value="90" data-price="3.660.000">90ml</option>
-                            </select>
-                            <p>Price: Rp. <span id="price1">1.320.000</span></p>
-                            <button class="btn btn-primary add-to-cart">Add to Cart</button>
+        </section>
+        <!-- Add to cart -->
+        <div id="cart-message" class="cart-message">Added to Cart!</div>
+        <!-- Floral Section -->
+        <section id="floral" class="py-5">
+            <div class="container">
+                <h2 class="text-center mb-4">Floral Collection</h2>
+                <p class="text-center mb-5">A curated selection celebrating the exquisite beauty of floral notes. Discover scents that whisper of gardens in full bloom.</p>
+                <div class="row text-center">
+                    <!-- Product 1 -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100">
+                            <img src="assets/perfumes/perfume01.png" class="card-img-top" alt="Floral Perfume 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Fleur d'Été</h5>
+                                <p class="card-text">A vibrant bouquet of summer blooms.</p>
+                                <label for="size1">Choose size:</label>
+                                <select id="size1" class="form-select mb-2">
+                                    <option value="30" data-price="1.320.000">30ml</option>
+                                    <option value="90" data-price="3.660.000">90ml</option>
+                                </select>
+                                <p>Price: Rp. <span id="price1">1.320.000</span></p>
+                                <button class="btn btn-primary add-to-cart">Add to Cart</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- Product 2 -->
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                        <img src="assets/perfumes/perfume02.png" class="card-img-top" alt="Floral Perfume 2">
-                        <div class="card-body">
-                            <h5 class="card-title">Rosa Celeste</h5>
-                            <p class="card-text">Elegant rose with a heavenly allure.</p>
-                            <label for="size2">Choose size:</label>
-                            <select id="size2" class="form-select mb-2">
-                                <option value="30" data-price="1.570.000">30ml</option>
-                                <option value="90" data-price="4.410.000">90ml</option>
-                            </select>
-                            <p>Price: Rp. <span id="price2">1.570.000</span></p>
-                            <button class="btn btn-primary add-to-cart">Add to Cart</button>
+                    <!-- Product 2 -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100">
+                            <img src="assets/perfumes/perfume02.png" class="card-img-top" alt="Floral Perfume 2">
+                            <div class="card-body">
+                                <h5 class="card-title">Rosa Celeste</h5>
+                                <p class="card-text">Elegant rose with a heavenly allure.</p>
+                                <label for="size2">Choose size:</label>
+                                <select id="size2" class="form-select mb-2">
+                                    <option value="30" data-price="1.570.000">30ml</option>
+                                    <option value="90" data-price="4.410.000">90ml</option>
+                                </select>
+                                <p>Price: Rp. <span id="price2">1.570.000</span></p>
+                                <button class="btn btn-primary add-to-cart">Add to Cart</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- Product 3 -->
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                        <img src="assets/perfumes/perfume03.png" class="card-img-top" alt="Floral Perfume 3">
-                        <div class="card-body">
-                            <h5 class="card-title">Lilas Mystique</h5>
-                            <p class="card-text">Delicate lilac with a mysterious twist.</p>
-                            <label for="size3">Choose size:</label>
-                            <select id="size3" class="form-select mb-2">
-                                <option value="30" data-price="1.850.000">30ml</option>
-                                <option value="90" data-price="5.250.000">90ml</option>
-                            </select>
-                            <p>Price: Rp. <span id="price3">1.850.000</span></p>
-                            <button class="btn btn-primary add-to-cart">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Woody Section -->
-    <section id="woody" class="py-5">
-        <div class="container">
-            <h2 class="text-center mb-4">Woody Collection</h2>
-            <p class="text-center mb-5">The essence of nature's enduring beauty. Our Woody Collection offers fragrances of depth and warmth.</p>
-            <div class="row text-center">
-                <!-- Product 1 -->
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                        <img src="assets/perfumes/perfume04.png" class="card-img-top" alt="Woody Perfume 4">
-                        <div class="card-body">
-                            <h5 class="card-title">Bois d'Ambre</h5>
-                            <p class="card-text">Warm amber wrapped in woody elegance.</p>
-                            <label for="size4">Choose size:</label>
-                            <select id="size4" class="form-select mb-2">
-                                <option value="30" data-price="1.820.000">30ml</option>
-                                <option value="90" data-price="5.160.000">90ml</option>
-                            </select>
-                            <p>Price: Rp. <span id="price4">1.820.000</span></p>
-                            <button class="btn btn-primary add-to-cart">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- Product 2 -->
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                        <img src="assets/perfumes/perfume05.png" class="card-img-top" alt="Woody Perfume 5">
-                        <div class="card-body">
-                            <h5 class="card-title">Selva Notturna</h5>
-                            <p class="card-text">A deep forest scent for tranquil nights.</p>
-                            <label for="size5">Choose size:</label>
-                            <select id="size5" class="form-select mb-2">
-                                <option value="30" data-price="1.350.000">30ml</option>
-                                <option value="90" data-price="3.750.000">90ml</option>
-                            </select>
-                            <p>Price: Rp. <span id="price5">1.350.000</span></p>
-                            <button class="btn btn-primary add-to-cart">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- Product 3 -->
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                        <img src="assets/perfumes/perfume06.png" class="card-img-top" alt="Woody Perfume 6">
-                        <div class="card-body">
-                            <h5 class="card-title">Forêt Sereine</h5>
-                            <p class="card-text">Serene woods with a calming essence.</p>
-                            <label for="size6">Choose size:</label>
-                            <select id="size6" class="form-select mb-2">
-                                <option value="30" data-price="1.850.000">30ml</option>
-                                <option value="90" data-price="5.250.000">90ml</option>
-                            </select>
-                            <p>Price: Rp. <span id="price6">1.850.000</span></p>
-                            <button class="btn btn-primary add-to-cart">Add to Cart</button>
+                    <!-- Product 3 -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100">
+                            <img src="assets/perfumes/perfume03.png" class="card-img-top" alt="Floral Perfume 3">
+                            <div class="card-body">
+                                <h5 class="card-title">Lilas Mystique</h5>
+                                <p class="card-text">Delicate lilac with a mysterious twist.</p>
+                                <label for="size3">Choose size:</label>
+                                <select id="size3" class="form-select mb-2">
+                                    <option value="30" data-price="1.850.000">30ml</option>
+                                    <option value="90" data-price="5.250.000">90ml</option>
+                                </select>
+                                <p>Price: Rp. <span id="price3">1.850.000</span></p>
+                                <button class="btn btn-primary add-to-cart">Add to Cart</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Citrus Section -->
-    <section id="citrus" class="py-5">
-        <div class="container">
-            <h2 class="text-center mb-4">Citrus Collection</h2>
-            <p class="text-center mb-5">Infuse your day with the crisp, clean elegance of citrus. Our collection: a celebration of bright sophistication.</p>
-            <div class="row text-center">
-                <!-- Product 1 -->
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                        <img src="assets/perfumes/perfume07.png" class="card-img-top" alt="Woody Perfume 7">
-                        <div class="card-body">
-                            <h5 class="card-title">Éclat de Citron</h5>
-                            <p class="card-text">Bright lemon spark with refreshing energy.</p>
-                            <label for="size7">Choose size:</label>
-                            <select id="size7" class="form-select mb-2">
-                                <option value="30" data-price="1.520.000">30ml</option>
-                                <option value="90" data-price="4.260.000">90ml</option>
-                            </select>
-                            <p>Price: Rp. <span id="price7">1.520.000</span></p>
-                            <button class="btn btn-primary add-to-cart">Add to Cart</button>
+        </section>
+        <!-- Woody Section -->
+        <section id="woody" class="py-5">
+            <div class="container">
+                <h2 class="text-center mb-4">Woody Collection</h2>
+                <p class="text-center mb-5">The essence of nature's enduring beauty. Our Woody Collection offers fragrances of depth and warmth.</p>
+                <div class="row text-center">
+                    <!-- Product 1 -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100">
+                            <img src="assets/perfumes/perfume04.png" class="card-img-top" alt="Woody Perfume 4">
+                            <div class="card-body">
+                                <h5 class="card-title">Bois d'Ambre</h5>
+                                <p class="card-text">Warm amber wrapped in woody elegance.</p>
+                                <label for="size4">Choose size:</label>
+                                <select id="size4" class="form-select mb-2">
+                                    <option value="30" data-price="1.820.000">30ml</option>
+                                    <option value="90" data-price="5.160.000">90ml</option>
+                                </select>
+                                <p>Price: Rp. <span id="price4">1.820.000</span></p>
+                                <button class="btn btn-primary add-to-cart">Add to Cart</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- Product 2 -->
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                        <img src="assets/perfumes/perfume08.png" class="card-img-top" alt="Woody Perfume 8">
-                        <div class="card-body">
-                            <h5 class="card-title">Sole d'Agrumi</h5>
-                            <p class="card-text">Sunny citrus blend with vibrant warmth.</p>
-                            <label for="size8">Choose size:</label>
-                            <select id="size8" class="form-select mb-2">
-                                <option value="30" data-price="1.370.000">30ml</option>
-                                <option value="90" data-price="3.810.000">90ml</option>
-                            </select>
-                            <p>Price: Rp. <span id="price8">1.370.000</span></p>
-                            <button class="btn btn-primary add-to-cart">Add to Cart</button>
+                    <!-- Product 2 -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100">
+                            <img src="assets/perfumes/perfume05.png" class="card-img-top" alt="Woody Perfume 5">
+                            <div class="card-body">
+                                <h5 class="card-title">Selva Notturna</h5>
+                                <p class="card-text">A deep forest scent for tranquil nights.</p>
+                                <label for="size5">Choose size:</label>
+                                <select id="size5" class="form-select mb-2">
+                                    <option value="30" data-price="1.350.000">30ml</option>
+                                    <option value="90" data-price="3.750.000">90ml</option>
+                                </select>
+                                <p>Price: Rp. <span id="price5">1.350.000</span></p>
+                                <button class="btn btn-primary add-to-cart">Add to Cart</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- Product 3 -->
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                        <img src="assets/perfumes/perfume09.png" class="card-img-top" alt="Woody Perfume 9">
-                        <div class="card-body">
-                            <h5 class="card-title">Zeste Enchanté</h5>
-                            <p class="card-text">Enchanting zest with a hint of sweetness.</p>
-                            <label for="size9">Choose size:</label>
-                            <select id="size9" class="form-select mb-2">
-                                <option value="30" data-price="1.560.000">30ml</option>
-                                <option value="90" data-price="4.380.000">90ml</option>
-                            </select>
-                            <p>Price: Rp. <span id="price9">1.560.000</span></p>
-                            <button class="btn btn-primary add-to-cart">Add to Cart</button>
+                    <!-- Product 3 -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100">
+                            <img src="assets/perfumes/perfume06.png" class="card-img-top" alt="Woody Perfume 6">
+                            <div class="card-body">
+                                <h5 class="card-title">Forêt Sereine</h5>
+                                <p class="card-text">Serene woods with a calming essence.</p>
+                                <label for="size6">Choose size:</label>
+                                <select id="size6" class="form-select mb-2">
+                                    <option value="30" data-price="1.850.000">30ml</option>
+                                    <option value="90" data-price="5.250.000">90ml</option>
+                                </select>
+                                <p>Price: Rp. <span id="price6">1.850.000</span></p>
+                                <button class="btn btn-primary add-to-cart">Add to Cart</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+        <!-- Citrus Section -->
+        <section id="citrus" class="py-5">
+            <div class="container">
+                <h2 class="text-center mb-4">Citrus Collection</h2>
+                <p class="text-center mb-5">Infuse your day with the crisp, clean elegance of citrus. Our collection: a celebration of bright sophistication.</p>
+                <div class="row text-center">
+                    <!-- Product 1 -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100">
+                            <img src="assets/perfumes/perfume07.png" class="card-img-top" alt="Woody Perfume 7">
+                            <div class="card-body">
+                                <h5 class="card-title">Éclat de Citron</h5>
+                                <p class="card-text">Bright lemon spark with refreshing energy.</p>
+                                <label for="size7">Choose size:</label>
+                                <select id="size7" class="form-select mb-2">
+                                    <option value="30" data-price="1.520.000">30ml</option>
+                                    <option value="90" data-price="4.260.000">90ml</option>
+                                </select>
+                                <p>Price: Rp. <span id="price7">1.520.000</span></p>
+                                <button class="btn btn-primary add-to-cart">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product 2 -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100">
+                            <img src="assets/perfumes/perfume08.png" class="card-img-top" alt="Woody Perfume 8">
+                            <div class="card-body">
+                                <h5 class="card-title">Sole d'Agrumi</h5>
+                                <p class="card-text">Sunny citrus blend with vibrant warmth.</p>
+                                <label for="size8">Choose size:</label>
+                                <select id="size8" class="form-select mb-2">
+                                    <option value="30" data-price="1.370.000">30ml</option>
+                                    <option value="90" data-price="3.810.000">90ml</option>
+                                </select>
+                                <p>Price: Rp. <span id="price8">1.370.000</span></p>
+                                <button class="btn btn-primary add-to-cart">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product 3 -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100">
+                            <img src="assets/perfumes/perfume09.png" class="card-img-top" alt="Woody Perfume 9">
+                            <div class="card-body">
+                                <h5 class="card-title">Zeste Enchanté</h5>
+                                <p class="card-text">Enchanting zest with a hint of sweetness.</p>
+                                <label for="size9">Choose size:</label>
+                                <select id="size9" class="form-select mb-2">
+                                    <option value="30" data-price="1.560.000">30ml</option>
+                                    <option value="90" data-price="4.380.000">90ml</option>
+                                </select>
+                                <p>Price: Rp. <span id="price9">1.560.000</span></p>
+                                <button class="btn btn-primary add-to-cart">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 
     <!-- Guides Section -->
     <section id="guides" class="guides-section py-5">
@@ -300,41 +312,41 @@
             <p class="text-center mb-5">Unlock the secrets of perfume. Our guides offer insights and advice to help you explore and choose with confidence.</p>
             <div class="row">
                 <!-- Guide 1 -->
-                <div class="col-md-4">
+                <div class="col-md-4 mb-4">
                     <div class="card text-center">
-                        <div class="card-body">
+                        <div class="card-body" >
                             <div class="icon-container mb-3">
                                 <img src="assets/background-icons/howToUsePerfume.svg" alt="Guide Icon 1" class="icon">
                             </div>
                             <h5 class="card-title">How to Use Perfume</h5>
-                            <p class="card-text">Master the art of applying perfume.</p>
+                            <p class="card-text">Apply perfume the right way to make it last all day.</p>
                             <a href="howToUsePerfume.html" class="btn btn-primary read-more-btn" data-target="#guides-detail">Read More</a>
                         </div>
                     </div>
                 </div>
                 <!-- Guide 2 -->
-                <div class="col-md-4">
+                <div class="col-md-4 mb-4">
                     <div class="card text-center">
                         <div class="card-body">
                             <div class="icon-container mb-3">
                                 <img src="assets/background-icons/perfumeCare.svg" alt="Guide Icon 2" class="icon">
                             </div>
-                            <h5 class="card-title">Perfume Care</h5>
-                            <p class="card-text">Keep your perfumes fresh and long-lasting.</p>
-                            <a href="perfumeCare.html" class="btn btn-primary read-more-btn" data-target="#guides-detail">Read More</a>
+                            <h5 class="card-title">How to Choose Perfume</h5>
+                            <p class="card-text">Find the right scent that suits your mood and personality.</p>
+                            <a href="howToChoosePerfume.html" class="btn btn-primary read-more-btn" data-target="#guides-detail">Read More</a>
                         </div>
                     </div>
                 </div>
                 <!-- Guide 3 -->
-                <div class="col-md-4">
+                <div class="col-md-4 mb-4">
                     <div class="card text-center">
                         <div class="card-body">
                             <div class="icon-container mb-3">
                                 <img src="assets/background-icons/fragranceFamilies.svg" alt="Guide Icon 3" class="icon">
                             </div>
-                            <h5 class="card-title">Fragrance Families</h5>
-                            <p class="card-text">Discover different fragrance families.</p>
-                            <a href="fragranceFamilies.html" class="btn btn-primary read-more-btn" data-target="#guides-detail">Read More</a>
+                            <h5 class="card-title">Perfume Storage Tips</h5>
+                            <p class="card-text">Protect your fragrance with proper storage methods.</p>
+                            <a href="perfumeStorageTips.html" class="btn btn-primary read-more-btn" data-target="#guides-detail">Read More</a>
                         </div>
                     </div>
                 </div>
@@ -342,14 +354,14 @@
         </div>
     </section>
 
-    <!-- COntact Section -->
+    <!-- Contact Section -->
     <section id="contact" class="contact-section py-5">
         <div class="container">
             <h2 class="text-center mb-4">Contact Us</h2>
             <p class="text-center mb-5">We'd love to hear from you! Fill out the form below or reach us directly through the provided contacts.</p>
             <div class="row">
                 <!-- Contact Form -->
-                <div class="col-md-6">
+                <div class="col-md-6 mb-4">
                     <form id="contact-form" action="#" method="POST">
                         <div class="mb-3">
                             <label for="name" class="form-label">Name</label>
@@ -366,9 +378,9 @@
                         <button type="submit" class="btn btn-primary">Send Message</button>
                     </form>
                 </div>
-                <!-- Contact Details -->
+                <!-- Contact Details & Map -->
                 <div class="col-md-6">
-                    <div class="contact-details">
+                    <div class="contact-details mb-4">
                         <h5>Reach Us Directly</h5>
                         <p><strong>Email:</strong> <a href="mailto:contact@perfume.com">auréleparfumerie@gmail.com</a></p>
                         <p><strong>Phone:</strong> +123-456-7890</p>
@@ -380,19 +392,12 @@
                             <a href="https://www.instagram.com" target="_blank" class="social-link"><img src="assets/background-icons/instagram.svg" alt="Instagram"></a>
                         </div>
                     </div>
+                    <div class="map-container">
+                        <iframe width="600" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" id="gmap_canvas" 
+                            src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=manhattan%20avenue%20new%20york+()&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
+                        </iframe>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="location" class="py-5">
-        <div class="container text-center">
-            <h2 class="mb-4">Our Location</h2>
-            <p class="mb-3">Visit us at Manhattan Avenue, New York!</p>
-            <div class="map-container">
-                <iframe width="520" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" id="gmap_canvas" 
-                    src="https://maps.google.com/maps?width=520&amp;height=400&amp;hl=en&amp;q=manhattan%20aven%20new%20york+()&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
-                </iframe>
             </div>
         </div>
     </section>    
@@ -434,7 +439,10 @@
         </div>
     </footer>
     
-    
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>

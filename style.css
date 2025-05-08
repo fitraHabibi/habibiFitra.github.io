@@ -4,6 +4,11 @@ body {
     padding: 0;
 }
 
+.navbar {
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
 .navbar-brand {
     font-family: 'Major Mono Display', monospace;
     font-size: 1.5rem;
@@ -13,6 +18,15 @@ body {
     width: 30px;
     height: 30px;
     margin-right: 8px;
+}
+
+.nav-link:hover {
+    color: #007bff !important;
+}
+
+.navbar .nav-link:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
 }
 
 .hero {
@@ -46,10 +60,12 @@ body {
     text-transform: uppercase;
     border-radius: 5px;
     transition: background-color 0.3s;
+    text-decoration: none;
 }
 
 .btn-explore:hover {
     background-color: #343a40;
+    text-decoration: none;
 }
 
 /* About Section */
@@ -90,7 +106,14 @@ body {
 #about .img-thumbnail {
     border: 1px solid #ddd;
     margin-bottom: 10px;
+    transition: transform 0.3s ease-in-out; /* Animasi transform */
 }
+
+#about .img-thumbnail:hover {
+    transform: scale(1.5); /* Memperbesar gambar saat hover */
+    z-index: 10; /* Memastikan gambar berada di atas elemen lain */
+}
+
 
 /* Products Section */
 
@@ -124,12 +147,29 @@ body {
     border-color: #497376;
 }
 
+@media (max-width: 576px) {
+    #products .row > div {
+        margin-bottom: 20px;
+    }
+
+    #products .card {
+        margin-bottom: 15px;
+        padding: 10px;
+    }
+
+    #products h2,
+    #products p {
+        padding: 0 10px;
+    }
+}
+
 /* Add to cart */
 
 .cart-message {
     position: fixed;
-    top: 20px;
-    right: 20px;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
     background-color: #5a8d92;
     color: #fff;
     padding: 10px 20px;
@@ -137,7 +177,7 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     display: none;
     font-size: 14px;
-    z-index: 1000;
+    z-index: 1050;
     animation: fadeOut 3s forwards;
 }
 
@@ -289,100 +329,37 @@ body {
     background-color: #584bff;
 }
 
-/* Guides after Read More */
-
-#guides-detail {
-    padding: 4rem 1rem;
-    background-color: #f9f9f9;
+/* article section */
+form input, form textarea {
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    box-shadow: none;
+    transition: all 0.3s ease;
   }
   
-  .guides-detail-title {
-    text-align: center;
-    margin-bottom: 2rem;
-    font-size: 2rem;
-    font-weight: bold;
-    color: #333;
+  form input:focus, form textarea:focus {
+    border-color: #b392f0;
+    box-shadow: 0 0 0 0.25rem rgba(179, 146, 240, 0.25);
   }
   
-  .guides-content {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    margin-bottom: 2rem;
-    align-items: center;
+  .btn-primary {
+    background-color: #b392f0;
+    border-color: #b392f0;
   }
   
-  .guides-content:nth-child(odd) .guide-img {
-    order: -1; 
+  .btn-primary:hover {
+    background-color: #9e7dd8;
+    border-color: #9e7dd8;
   }
   
-  .guide-img img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin: 10px 0;
+  .alert-success {
+    animation: fadeIn 0.5s ease;
   }
   
-  .guide-text {
-    flex: 1;
-    padding: 1rem;
-    color: #555;
+  @keyframes fadeIn {
+    from {opacity: 0; transform: translateY(10px);}
+    to {opacity: 1; transform: translateY(0);}
   }
-  
-  .guide-text h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: #444;
-  }
-  
-  .guide-text p {
-    line-height: 1.6;
-    margin-bottom: 1rem;
-  }
-  
-  .guide-text a {
-    color: #007bff;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  .guide-text a:hover {
-    text-decoration: underline;
-  }
-  
-  /* Responsive Styling */
-  @media (max-width: 768px) {
-    .guides-content {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .guide-img {
-      max-width: 80%;
-    }
-  }
-
-  /* Back to Guides */
-
-  .btn-secondary {
-    display: inline-block;
-    padding: 10px 20px;
-    margin: 20px 0;
-    color: #fff;
-    background-color: #6c757d;
-    border: none;
-    border-radius: 8px;
-    text-decoration: none;
-    text-align: center;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-}
-
-.btn-secondary:hover {
-    background-color: #5a6268;
-    text-decoration: none;
-}
 
 /* Contact Section */
 
@@ -436,6 +413,26 @@ body {
 .social-link:hover img {
     filter: grayscale(0);
 }
+
+.contact-section .map-container {
+    margin-top: 20px;
+    border: none;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.contact-section iframe {
+    width: 100%;
+    max-width: 100%;
+    height: 300px;
+}
+
+@media (min-width: 768px) {
+    .contact-section iframe {
+        height: 400px;
+    }
+}
+
 
 /* Footer Section */
 
@@ -491,6 +488,7 @@ body {
     color: #6c757d;
 }
 
+/* location */
 #location {
     background-color: #f9f9f9;
     padding: 50px 0;
@@ -525,3 +523,41 @@ body {
     max-width: 600px;
     height: 400px;
 }
+
+/* certificate */
+#imageModal {
+    display: flex;
+}
+
+/* filter button */
+.filter-btn.active {
+    background-color: #6f42c1; /* Bootstrap purple */
+    color: white;
+    border-color: #6f42c1;
+    box-shadow: 0 0 0 0.2rem rgba(111, 66, 193, 0.25);
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .filter-btn {
+    transition: all 0.2s ease-in-out;
+  }
+  
+  /* Animasi dan tata letak untuk card yang difilter */
+.filtered-card {
+    animation: fadeZoomIn 0.5s ease;
+    margin-left: auto;
+    margin-right: auto;
+    float: none;
+  }
+  
+  @keyframes fadeZoomIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
